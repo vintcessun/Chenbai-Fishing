@@ -41,8 +41,8 @@ def main():
             print(f"删除{del_num}-4.png到{del_num+num-1}-4.png")
             for i in range(num):
                 os.system(f"del image-4\\{del_num+i}-4.png")
-                _main()
-                return;
+            _main()
+            return;
         elif tag==5:
             os.system(f'del "{file}"')
             print(f"已删除 {file}")
