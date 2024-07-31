@@ -1,2 +1,1 @@
-pyinstaller -i icon.ico -F --add-data model;imgs run.py
-pause
+pyinstaller -i icon.ico -F -c --uac-admin --add-data model;imgs run.py

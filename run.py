@@ -11,7 +11,7 @@ import win32gui,win32ui,win32con
 
 from imgchange import all_change
 
-window = False
+window = True
 number_tag={0:"none",
 1:"normal",
 2:"perfect"
