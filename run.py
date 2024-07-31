@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 print("请等待预加载，可能因为设备性能而有差异")
 
 from keras.models import load_model
@@ -8,6 +9,7 @@ from pyautogui import press
 import time
 import os
 import win32gui,win32ui,win32con
+import sys
 
 from imgchange import all_change
 
@@ -16,6 +18,13 @@ number_tag={0:"none",
 1:"normal",
 2:"perfect"
 }
+
+def get_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except AttributeError:
+        base_path = os.path.abspath(".")
+    return relative_path
 
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 load_model = load_model(get_path("model"))
@@ -27,14 +36,6 @@ pre = cv2.imread(get_path("imgs/test-pre.png"))
 hwnd = 0
 screenshot = None
 print("预加载完成")
-
-def get_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except AttributeError:
-        base_path = os.path.abspath(".")
- 
-    return os.path.normpath(os.path.join(base_path, relative_path))
 
 def Template(source,template,pos=[0,0]):
     res = cv2.matchTemplate(source, template, cv2.TM_CCOEFF_NORMED)
@@ -72,7 +73,7 @@ if window:
     screenshot=screenshot_window()
     print("匹配完成")
 else:
-    screenshot=screen_shot_all
+    screenshot=screenshot_all
 
 
 def get_result(predicted):
