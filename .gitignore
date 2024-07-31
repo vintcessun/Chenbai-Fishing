@@ -161,3 +161,4 @@ cython_debug/
 /image-4
 *.mp4
 run.exe
+/test
