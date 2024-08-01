@@ -13,7 +13,7 @@ import sys
 
 from imgchange import all_change
 
-window = True
+window = False
 number_tag={0:"none",
 1:"normal",
 2:"perfect"
