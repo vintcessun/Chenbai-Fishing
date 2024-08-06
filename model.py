@@ -91,7 +91,6 @@ class MyEarlyStopping(keras.callbacks.Callback):
                 self.model.stop_training = True
                 print("Restoring model weights from the end of the best epoch.")
                 self.model.set_weights(self.best_weights)
-                os.system("start restart.bat")
 
     def on_train_end(self, logs=None):
         if self.stopped_epoch > 0:
@@ -156,4 +155,5 @@ load_score = load_model.evaluate(flow_test, verbose=0)
 print('load accuracy:', load_score[1])
 if load_score[1]<score[1]:
     print("better")
-    model.save("model\\model")
+    model.save("model")
+os.system("start restart.bat")

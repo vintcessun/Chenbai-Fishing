@@ -19,15 +19,22 @@ number_tag={0:"none",
 2:"perfect"
 }
 
+
+
 def get_path(relative_path):
     try:
         base_path = sys._MEIPASS
     except AttributeError:
-        base_path = os.path.abspath(".")
-    return relative_path
+        base_path = ""
+ 
+    return os.path.normpath(os.path.join(base_path, relative_path))
+ 
 
+#print(get_path("."))
+#print(get_path("model"))
+#os.system("pause")
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-load_model = load_model(get_path("model"))
+#os.system(f"dir {get_path('.')}")
 pyautogui.FAILSAFE = False
 find1 = cv2.imread(get_path("imgs/test-find-1.png"))
 find2 = cv2.imread(get_path("imgs/test-find-2.png"))
@@ -35,6 +42,7 @@ success = cv2.imread(get_path("imgs/test-success.png"))
 pre = cv2.imread(get_path("imgs/test-pre.png"))
 hwnd = 0
 screenshot = None
+load_model = load_model(get_path("model"))
 print("预加载完成")
 
 def Template(source,template,pos=[0,0]):
@@ -161,6 +169,7 @@ def action():
         if date and can_finish:
             if similar_success(image):
                 print("结算页面")
+                os.system("md result")
                 t = time.strftime('%Y-%m-%d-%H-%M-%S', time.localtime())
                 file = f"result\\{t}.png"
                 cv2.imwrite(file, image)
