@@ -163,3 +163,4 @@ cython_debug/
 run.exe
 /test
 *.exe
+/result
