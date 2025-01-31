@@ -1,2 +1,2 @@
 @call conda activate tensor
-pyinstaller -i icon.ico -F -c --uac-admin --add-data="model;./model" --add-data="imgs;./imgs" run.py
+pyinstaller --onefile --hidden-import tensorflow --hidden-import tensorflow.python.framework --hidden-import tensorflow.python.platform.windows -i icon.ico -F -c --uac-admin --add-data="model;./model" --add-data="imgs;./imgs" run.py
