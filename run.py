@@ -17,7 +17,7 @@ from PIL import Image
 from imgchange import all_change
 import threading
 
-window = True
+window = False
 number_tag={0:"none",
 1:"normal",
 2:"perfect"
