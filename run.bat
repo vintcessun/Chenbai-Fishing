@@ -1,2 +1,2 @@
 @call conda activate tensor
-python run.py
+cd /d D:\Scripts\³¾°×µöÓã && python run.py
